@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: resume-outbox-relay-service
+  main:
+    web-application-type: none
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/resume_profile}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    open-in-view: false
+  flyway:
+    enabled: false
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
+
+app:
+  outbox:
+    relay:
+      enabled: true
+      mode: profile
+      poll-interval-ms: 2000
+      batch-size: 100
+      max-attempts: 10
+      retry-delay-ms: 30000
