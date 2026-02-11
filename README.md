@@ -1,26 +1,15 @@
-# outbox-relay-service
+# resume-outbox-relay-service
 
-Standalone repository for the outbox-relay-service microservice.
+Single-service repository for `microservices/backend/services/outbox-relay-service`.
 
-## Local build
+## Build
+`./mvnw -pl microservices/backend/services/outbox-relay-service -am -DskipTests package`
 
-```bash
-./mvnw -pl microservices/backend/services/outbox-relay-service -am -Dmaven.test.skip=true package
-```
+## Run
+`./mvnw -pl microservices/backend/services/outbox-relay-service -am spring-boot:run`
 
-## Local run
+## Shared libraries
+This service depends on artifacts from `resume-platform-libs`.
 
-```bash
-./mvnw -pl microservices/backend/services/outbox-relay-service -am spring-boot:run
-```
-
-## Included modules
-
-- shared
-- staticdata
-- profile
-- notification
-- auth
-- search
-- microservices/backend/services/outbox-relay-service
-
+Install/update shared libraries before building service repos:
+`cd ../resume-platform-libs && ./mvnw -DskipTests install`

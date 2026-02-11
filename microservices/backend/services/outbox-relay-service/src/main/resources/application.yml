@@ -11,6 +11,10 @@ spring:
     open-in-view: false
   flyway:
     enabled: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/outbox/${app.outbox.relay.mode:profile}.sql
   rabbitmq:
     host: ${RABBITMQ_HOST:localhost}
     port: ${RABBITMQ_PORT:5672}
